@@ -4,16 +4,33 @@ window.addBlock = (name) -> alert(name)
 # then passes the return value as an obj with args to the next function, evals
 # it, etc.
 
-window.addWidget = (name) ->
-  #button = $('<div data-'+ $.mobile.ns +'-role="button">Button</div>')
-  #button.appendTo('#canvas')
+window.addWidget = (type) ->
+  switch type
+    when 'button'
+      name = prompt('Button name', 'Button')
+      button = $('#proto-button').clone().removeClass('proto').attr('id', name)
+      $(button).find('span > span').text(name)
+      $(button).appendTo('#canvas')
 
-  #button = $('#block1').clone()
-  #button.appentTo('#canvas')
+    when 'textinput'
+      label = prompt('Text input label', 'Text input:')
+      textinput = $('#proto-textinput').clone().removeClass('proto').attr('id', 'bla')
+      $(textinput).find('label').text(label)
+      $(textinput).appendTo('#canvas')
 
-  button = $('#protobutton').clone().removeClass('proto').attr('id', "bla")
-  $(button).find('span > span').text('Button!')
-  $(button).appendTo('#canvas')
+    when 'password'
+      label = prompt('Password input label', 'Password input:')
+      pass = $('#proto-password').clone().removeClass('proto')
+      $(pass).find('label').text(label)
+      $(pass).appendTo('#canvas')
+
+    when 'textarea'
+      label = prompt('Textarea label', 'Textarea:')
+      area = $('#proto-textarea').clone().removeClass('proto')
+      $(area).find('label').text(label)
+      $(area).appendTo('#canvas')
+
+window.onBodyLoad = ->
 
 $(document).ready ->
   $('#block1').touchstart ->

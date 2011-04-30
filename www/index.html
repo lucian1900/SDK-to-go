@@ -42,16 +42,30 @@
 
     <div data-role="content">
         <div id="canvas">
-            <div id="protobutton" data-role="button" class="proto">Button</div>
+            <div id="proto-button" data-role="button" class="proto">Button</div>
+
+            <div id="proto-textinput" class="proto">
+                <label for="name">Text input:</label>
+                <input type="text" name="name" value=""/>
+            </div>
+
+            <div id="proto-password" class="proto">
+                <label for="password">Password input:</label>
+                <input type="password" name="password" value=""/>
+            </div>
+
+            <div id="proto-textarea" class="proto">
+                <label for="textarea">Textarea:</label>
+                <textarea name="textarea"></textarea>
+            </div>
+
         </div>
     </div>
 
     <div data-role="footer" data-position="fixed">
         <div data-role="footer" class="ui-bar">
             <a href="#add-widget" data-role="button" data-icon="plus" data-rel="dialog">Add widget</a>
-
-            <a href="index.html" data-role="button" data-icon="arrow-u">Up</a>
-            <a href="index.html" data-role="button" data-icon="arrow-d">Down</a>
+            <a href="#remove-widget" data-role="button" data-icon="minus" data-rel="dialog">Remove widget</a>
         </div>
     </div>
 </div>
@@ -64,6 +78,9 @@
 
     <div data-role="content">
         <a onclick="addWidget('button')" data-role="button" data-rel="back">Button</a>
+        <a onclick="addWidget('textinput')" data-role="button" data-rel="back">Text input</a>
+        <a onclick="addWidget('password')" data-role="button" data-rel="back">Password input</a>
+        <a onclick="addWidget('textarea')" data-role="button" data-rel="back">Textarea</a>
 
         <a href="#control" data-role="button" data-rel="back" data-theme="e">Cancel</a>
     </div>
@@ -105,6 +122,9 @@
     </div>
 
     <div data-role="content">
+        <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
+        <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
+        <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
         <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
 
         <a href="#view" data-role="button" data-rel="back" data-theme="e">Cancel</a>
