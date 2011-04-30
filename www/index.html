@@ -27,35 +27,90 @@
 </head>
 <body onload="onBodyLoad()">
 
-<div data-role="page">
-    <div data-role="header">
+
+<div data-role="page" id="view">
+    <div data-role="header" data-position="fixed">
         <h1>SDK to go</h1>
 
-        <div data-role="navbar">
+        <div data-role="navbar" data-id="tab-bar">
             <ul>
-                <li> <a href="a.html" class="ui-btn-active"> A </a> </li>
-                <li> <a href="b.html"> B </a> </li>
+                <li> <a href="#view" class="ui-btn-active ui-state-persist">View</a> </li>
+                <li> <a href="#control">Controller</a> </li>
             </ul>
         </div>
     </div>
 
     <div data-role="content">
         <div id="canvas">
-            <div id="block1" class="block">
-               drag me
-             </div>
+            <div id="protobutton" data-role="button" class="proto">Button</div>
         </div>
     </div>
 
-    <div data-role="footer">
+    <div data-role="footer" data-position="fixed">
         <div data-role="footer" class="ui-bar">
-            <a href="index.html" data-role="button" data-icon="delete">Remove</a>
-        	<a href="index.html" data-role="button" data-icon="plus">Add</a>
+            <a href="#add-widget" data-role="button" data-icon="plus" data-rel="dialog">Add widget</a>
+
             <a href="index.html" data-role="button" data-icon="arrow-u">Up</a>
             <a href="index.html" data-role="button" data-icon="arrow-d">Down</a>
         </div>
     </div>
-
 </div>
+
+
+<div data-role="page" id="add-widget">
+    <div data-role="header" data-position="inline">
+        <h1>Add widget</h1>
+    </div>
+
+    <div data-role="content">
+        <a onclick="addWidget('button')" data-role="button" data-rel="back">Button</a>
+
+        <a href="#control" data-role="button" data-rel="back" data-theme="e">Cancel</a>
+    </div>
+</div>
+
+
+
+
+<div data-role="page" id="control">
+    <div data-role="header" data-position="fixed">
+        <h1>SDK to go</h1>
+
+        <div data-role="navbar" data-id="tab-bar">
+            <ul>
+                <li> <a href="#view">View</a> </li>
+                <li> <a href="#control" class="ui-btn-active ui-state-persist">Controller</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <div id="canvas">
+
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div data-role="footer" class="ui-bar">
+            <a href="#add-block" data-role="button" data-icon="plus" data-rel="dialog">Add block</a>
+
+        </div>
+    </div>
+</div>
+
+
+<div data-role="page" id="add-block">
+    <div data-role="header" data-position="inline">
+        <h1>Add block</h1>
+    </div>
+
+    <div data-role="content">
+        <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
+
+        <a href="#view" data-role="button" data-rel="back" data-theme="e">Cancel</a>
+    </div>
+</div>
+
+
 </body>
 </html>
