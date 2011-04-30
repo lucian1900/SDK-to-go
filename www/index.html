@@ -65,7 +65,7 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="footer" class="ui-bar">
             <a href="#add-widget" data-role="button" data-icon="plus" data-rel="dialog">Add widget</a>
-            <a href="#remove-widget" data-role="button" data-icon="minus" data-rel="dialog">Remove widget</a>
+            <div onclick="removeWidget()" data-role="button" data-icon="minus">Remove widget</div>
         </div>
     </div>
 </div>
@@ -122,10 +122,10 @@
     </div>
 
     <div data-role="content">
-        <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
-        <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
-        <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
-        <a onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</a>
+        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
+        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
+        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
+        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
 
         <a href="#view" data-role="button" data-rel="back" data-theme="e">Cancel</a>
     </div>

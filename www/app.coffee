@@ -30,6 +30,12 @@ window.addWidget = (type) ->
       $(area).find('label').text(label)
       $(area).appendTo('#canvas')
 
+window.removeWidget = ->
+  last_child = $('#canvas > *:last')
+  console.log(last_child)
+  unless $(last_child).hasClass('proto')
+    $(last_child).remove()
+
 window.onBodyLoad = ->
 
 $(document).ready ->
