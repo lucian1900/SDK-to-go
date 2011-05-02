@@ -14,25 +14,23 @@ window.updateObjects = () ->
     #i.appendTo('#object-select')
 
 window.addWidget = (type) ->
+  widget = $("#proto-#{type}").clone().removeClass('proto')
+
   switch type
     when 'button'
       label = prompt('Button name', 'Button')
-      widget = $('#proto-button').clone().removeClass('proto')
       $(widget).find('span > span').text(label)
 
     when 'textinput'
       label = prompt('Text input label', 'Text input:')
-      widget = $('#proto-textinput').clone().removeClass('proto')
       $(widget).find('label').text(label)
 
     when 'password'
       label = prompt('Password input label', 'Password input:')
-      widget = $('#proto-password').clone().removeClass('proto')
       $(widget).appendTo('#view-canvas')
 
     when 'textarea'
       label = prompt('Textarea label', 'Textarea:')
-      widget = $('#proto-textarea').clone().removeClass('proto')
       $(widget).find('label').text(label)
 
   widget.attr('id', label).appendTo('#view-canvas')
