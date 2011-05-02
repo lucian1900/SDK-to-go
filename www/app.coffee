@@ -36,7 +36,7 @@ window.addWidget = (type) ->
   widget.attr('id', label).appendTo('#view-canvas')
 
 
-  block = $('#proto-object').clone().removeClass('proto')
+  block = $('#proto-object').clone().removeClass('proto').attr('id', label+'-object')
 
   block.children('label').attr('for', label).html(label)
   block.children('input').attr('value', label).attr('id', label)
