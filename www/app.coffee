@@ -19,21 +19,29 @@ window.addWidget = (type) ->
   switch type
     when 'button'
       label = prompt('Button name', 'Button')
-      $(widget).find('span > span').text(label)
+      widget.find('span > span').text(label)
 
     when 'textinput'
       label = prompt('Text input label', 'Text input:')
-      $(widget).find('label').text(label)
+      widget.find('label').text(label)
 
     when 'password'
       label = prompt('Password input label', 'Password input:')
-      $(widget).appendTo('#view-canvas')
+      widget.appendTo('#view-canvas')
 
     when 'textarea'
       label = prompt('Textarea label', 'Textarea:')
-      $(widget).find('label').text(label)
+      widget.find('label').text(label)
 
   widget.attr('id', label).appendTo('#view-canvas')
+
+
+  block = $('#proto-object').clone().removeClass('proto')
+
+  block.children('label').attr('for', label).html(label)
+  block.children('input').attr('value', label).attr('id', label).removeAttr('checked')
+
+  block.appendTo('#control-canvas')
 
 window.removeWidget = ->
   'Pop the last widget from the inverted stack.'

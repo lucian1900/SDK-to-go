@@ -103,7 +103,20 @@
 
     <div data-role="content">
         <div id="control-canvas">
-            <div>
+            <div id="proto-object" class="proto">
+                <label for="object">object</label>
+                <input type="radio" name="object-choice" id="object" value="object"/>
+
+                <select name="event-choice">
+                    <option value="load">load</option>
+                    <option value="click">click</option>
+                    <option value="focus">focus</option>
+                </select>
+
+                <div id="proto-block" data-role="button">Block</div>
+            </div>
+
+            <div id="window-block">
                 <label for="window">window</label>
                 <input type="radio" name="object-choice" id="window" value="window" checked="checked" />
 
@@ -112,12 +125,7 @@
                     <option value="click">click</option>
                     <option value="focus">focus</option>
                 </select>
-
-                <div data-role="button">Bla</div>
             </div>
-
-		    <label for="radio-choice-4">Lizard</label>
-		    <input type="radio" name="object-choice" id="radio-choice-4" value="choice-4"  />
         </div>
     </div>
 
