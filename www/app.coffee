@@ -1,42 +1,52 @@
-window.addBlock = (name) -> alert(name)
 # add a reference to a JS function in an array of "blocks" to be executed
 # the exec reads the first function, passes it an obj with args, evals it
 # then passes the return value as an obj with args to the next function, evals
 # it, etc.
 
+fetchWidgets = -> $('#view-canvas').children().not('.proto')
+
+window.addBlock = (name) ->
+  console.log fetchWidgets()
+
+window.updateObjects = () ->
+  widgets = fetchWidgets().each (i) ->
+    console.log i
+    #i.appendTo('#object-select')
+
 window.addWidget = (type) ->
   switch type
     when 'button'
-      name = prompt('Button name', 'Button')
-      button = $('#proto-button').clone().removeClass('proto').attr('id', name)
-      $(button).find('span > span').text(name)
-      $(button).appendTo('#canvas')
+      label = prompt('Button name', 'Button')
+      widget = $('#proto-button').clone().removeClass('proto')
+      $(widget).find('span > span').text(label)
 
     when 'textinput'
       label = prompt('Text input label', 'Text input:')
-      textinput = $('#proto-textinput').clone().removeClass('proto').attr('id', 'bla')
-      $(textinput).find('label').text(label)
-      $(textinput).appendTo('#canvas')
+      widget = $('#proto-textinput').clone().removeClass('proto')
+      $(widget).find('label').text(label)
 
     when 'password'
       label = prompt('Password input label', 'Password input:')
-      pass = $('#proto-password').clone().removeClass('proto')
-      $(pass).find('label').text(label)
-      $(pass).appendTo('#canvas')
+      widget = $('#proto-password').clone().removeClass('proto')
+      $(widget).appendTo('#view-canvas')
 
     when 'textarea'
       label = prompt('Textarea label', 'Textarea:')
-      area = $('#proto-textarea').clone().removeClass('proto')
-      $(area).find('label').text(label)
-      $(area).appendTo('#canvas')
+      widget = $('#proto-textarea').clone().removeClass('proto')
+      $(widget).find('label').text(label)
+
+  widget.attr('id', label).appendTo('#view-canvas')
 
 window.removeWidget = ->
-  last_child = $('#canvas > *:last')
-  console.log(last_child)
+  'Pop the last widget from the inverted stack.'
+  last_child = $('#view-canvas > *:last')
+
   unless $(last_child).hasClass('proto')
     $(last_child).remove()
 
 window.onBodyLoad = ->
+  #$('#object-select').bind 'click', 'focus' ->
+
 
 $(document).ready ->
   $('#block1').touchstart ->
