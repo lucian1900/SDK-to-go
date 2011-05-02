@@ -39,7 +39,7 @@ window.addWidget = (type) ->
   block = $('#proto-object').clone().removeClass('proto')
 
   block.children('label').attr('for', label).html(label)
-  block.children('input').attr('value', label).attr('id', label).removeAttr('checked')
+  block.children('input').attr('value', label).attr('id', label)
 
   block.appendTo('#control-canvas')
 
