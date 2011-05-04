@@ -25,41 +25,53 @@ window.addBlock = (name) ->
   true
 
 window.addWidget = (type) ->
-  widget = $("#proto-#{type}").clone().removeClass('proto')
+  canvas = $('#view-canvas')
 
   switch type
     when 'button'
-      label = prompt('Button name', 'Button')
-      widget.find('span > span').text(label)
+      label = prompt 'Button name', 'Button'
+      canvas.append """<button id="#{label}">#{label}</button>"""
+      canvas.find("##{label}").button()
 
     when 'textinput'
-      label = prompt('Text input label', 'Text')
-      widget.find('label').text(label)
+      label = prompt 'Text input label', 'Text'
+      canvas.append """<div id="#{label}">
+                          <label for="name">#{label}</label>
+                          <input type="text" name="name" value="" />
+                       </div>"""
+      canvas.find("##{label} > input").textinput()
 
     when 'password'
       label = prompt('Password input label', 'Password')
-      widget.appendTo('#view-canvas')
+      canvas.append """<div id="#{label}">
+                           <label for="password">#{label}</label>
+                           <input type="password" name="password" value=""/>
+                       </div>"""
+      canvas.find("##{label} > input").textinput()
 
     when 'textarea'
       label = prompt('Textarea label', 'Textarea')
-      widget.find('label').text(label)
+      canvas.append """<div id="#{label}">
+                           <label for="textarea">#{label}</label>
+                           <textarea name="textarea"></textarea>
+                       </div>"""
+      canvas.find("##{label} > textarea").textinput()
 
-  widget.attr('id', label).appendTo('#view-canvas')
 
+  canvas = $('#control-canvas')
+  canvas.append """
+        <div id="#{label}-object" class="object">
+            <label for="object">#{label}</label>
+            <input type="radio" name="object-choice" id="object" value="object"/>
 
-  object = $('#proto-object').clone(true, true).removeClass('proto').attr('id', label+'-object')
-  #console.log object
-
-  object.find('label').attr('for', label)
-  object.find('label > span > span:first').text(label)
-  object.find('input').attr('value', label).attr('id', label)
-
-  object.appendTo('#control-canvas')
-
-  #refresh forms
-  #$("input[type='checkbox']".attr('checked', true).checkboxradio('refresh')
-  #$("input[type='radio']").attr("checked",true).checkboxradio("refresh")
-  #$("select").each (i) -> i.selectmenu("refresh")
+            <select name="event-choice">
+                <option value="load">load</option>
+                <option value="click">click</option>
+                <option value="focus">focus</option>
+            </select>
+        </div>"""
+  canvas.children("#{label}-object > input[type='radio']").checkboxradio()
+  canvas.children("#{label}-object > select").selectmenu()
 
 window.removeWidget = ->
   'Pop the last widget from the inverted stack.'

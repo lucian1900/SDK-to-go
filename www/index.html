@@ -43,24 +43,7 @@
     </div>
 
     <div data-role="content" id="view-canvas">
-        <div id="proto-button" data-role="button" class="proto button">
-            Button
-        </div>
 
-        <div id="proto-textinput" class="proto textinput">
-            <label for="name">Text input:</label>
-            <input type="text" name="name" value=""/>
-        </div>
-
-        <div id="proto-password" class="proto password">
-            <label for="password">Password input:</label>
-            <input type="password" name="password" value=""/>
-        </div>
-
-        <div id="proto-textarea" class="proto textarea">
-            <label for="textarea">Textarea:</label>
-            <textarea name="textarea"></textarea>
-        </div>
     </div>
 
     <div data-role="footer" class="ui-bar" data-position="fixed">
@@ -80,12 +63,6 @@
         <a onclick="addWidget('textinput')" data-role="button" data-rel="back">Text input</a>
         <a onclick="addWidget('password')" data-role="button" data-rel="back">Password input</a>
         <a onclick="addWidget('textarea')" data-role="button" data-rel="back">Textarea</a>
-
-        <a
-          onclick="addBla()"
-          data-role="button"
-          data-rel="back">Bla</a>
-
 
         <a href="#view" data-role="button" data-rel="back" data-theme="e">Cancel</a>
     </div>
@@ -109,19 +86,6 @@
     </div>
 
     <div data-role="content" id="control-canvas">
-        <div id="proto-object" class="proto object">
-            <label for="object">object</label>
-            <input type="radio" name="object-choice" id="object" value="object"/>
-
-            <select name="event-choice">
-                <option value="load">load</option>
-                <option value="click">click</option>
-                <option value="focus">focus</option>
-            </select>
-
-            <div id="proto-block" data-role="button" class="proto block">Block</div>
-        </div>
-
         <div id="window-object" class="object">
             <label for="window">window</label>
             <input type="radio" name="object-choice" id="window" value="window" checked="checked" />
@@ -131,8 +95,6 @@
                 <option value="click">click</option>
                 <option value="focus">focus</option>
             </select>
-
-            <div id="proto-block" data-role="button" class="proto block">Block</div>
         </div>
     </div>
 
