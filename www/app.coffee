@@ -5,13 +5,24 @@
 
 fetchWidgets = -> $('#view-canvas').children().not('.proto')
 
-window.addBlock = (name) ->
-  console.log fetchWidgets()
+window.updateRun = -> true
 
-window.updateObjects = () ->
-  widgets = fetchWidgets().each (i) ->
-    console.log i
-    #i.appendTo('#object-select')
+window.addBlock = (name) ->
+  switch name
+    when 'alert'
+      message = prompt("Message", "Hello world!")
+      closure = -> alert message
+
+    when false
+      closure = -> eval $('#editor').find('textarea').val()
+
+  objName = $("input[name='object-choice']:radio").filter(':checked').val()
+  obj = $("##{objName}-object").html()
+
+  if objName == 'window'
+    $('#run').live 'pageshow', closure
+
+  true
 
 window.addWidget = (type) ->
   widget = $("#proto-#{type}").clone().removeClass('proto')
@@ -22,26 +33,33 @@ window.addWidget = (type) ->
       widget.find('span > span').text(label)
 
     when 'textinput'
-      label = prompt('Text input label', 'Text input:')
+      label = prompt('Text input label', 'Text')
       widget.find('label').text(label)
 
     when 'password'
-      label = prompt('Password input label', 'Password input:')
+      label = prompt('Password input label', 'Password')
       widget.appendTo('#view-canvas')
 
     when 'textarea'
-      label = prompt('Textarea label', 'Textarea:')
+      label = prompt('Textarea label', 'Textarea')
       widget.find('label').text(label)
 
   widget.attr('id', label).appendTo('#view-canvas')
 
 
-  block = $('#proto-object').clone().removeClass('proto').attr('id', label+'-object')
+  object = $('#proto-object').clone(true, true).removeClass('proto').attr('id', label+'-object')
+  #console.log object
 
-  block.children('label').attr('for', label).html(label)
-  block.children('input').attr('value', label).attr('id', label)
+  object.find('label').attr('for', label)
+  object.find('label > span > span:first').text(label)
+  object.find('input').attr('value', label).attr('id', label)
 
-  block.appendTo('#control-canvas')
+  object.appendTo('#control-canvas')
+
+  #refresh forms
+  #$("input[type='checkbox']".attr('checked', true).checkboxradio('refresh')
+  #$("input[type='radio']").attr("checked",true).checkboxradio("refresh")
+  #$("select").each (i) -> i.selectmenu("refresh")
 
 window.removeWidget = ->
   'Pop the last widget from the inverted stack.'

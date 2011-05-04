@@ -32,6 +32,8 @@
     <div data-role="header" data-position="fixed">
         <h1>SDK to go</h1>
 
+        <a href="#run" onclick="updateRun()" data-icon="gear" class="ui-btn-right">Run</a>
+
         <div data-role="navbar" data-id="tab-bar">
             <ul>
                 <li> <a href="#view" class="ui-btn-active ui-state-persist">View</a> </li>
@@ -40,27 +42,24 @@
         </div>
     </div>
 
-    <div data-role="content">
-        <div id="view-canvas">
-            <div id="proto-button" data-role="button" class="proto button">
-                Button
-            </div>
+    <div data-role="content" id="view-canvas">
+        <div id="proto-button" data-role="button" class="proto button">
+            Button
+        </div>
 
-            <div id="proto-textinput" class="proto textinput">
-                <label for="name">Text input:</label>
-                <input type="text" name="name" value=""/>
-            </div>
+        <div id="proto-textinput" class="proto textinput">
+            <label for="name">Text input:</label>
+            <input type="text" name="name" value=""/>
+        </div>
 
-            <div id="proto-password" class="proto password">
-                <label for="password">Password input:</label>
-                <input type="password" name="password" value=""/>
-            </div>
+        <div id="proto-password" class="proto password">
+            <label for="password">Password input:</label>
+            <input type="password" name="password" value=""/>
+        </div>
 
-            <div id="proto-textarea" class="proto textarea">
-                <label for="textarea">Textarea:</label>
-                <textarea name="textarea"></textarea>
-            </div>
-
+        <div id="proto-textarea" class="proto textarea">
+            <label for="textarea">Textarea:</label>
+            <textarea name="textarea"></textarea>
         </div>
     </div>
 
@@ -82,7 +81,13 @@
         <a onclick="addWidget('password')" data-role="button" data-rel="back">Password input</a>
         <a onclick="addWidget('textarea')" data-role="button" data-rel="back">Textarea</a>
 
-        <a href="#control" data-role="button" data-rel="back" data-theme="e">Cancel</a>
+        <a
+          onclick="addBla()"
+          data-role="button"
+          data-rel="back">Bla</a>
+
+
+        <a href="#view" data-role="button" data-rel="back" data-theme="e">Cancel</a>
     </div>
 </div>
 
@@ -93,6 +98,8 @@
     <div data-role="header" data-position="fixed">
         <h1>SDK to go</h1>
 
+        <a href="#run" onclick="updateRun()" data-icon="gear" class="ui-btn-right">Run</a>
+
         <div data-role="navbar" data-id="tab-bar">
             <ul>
                 <li> <a href="#view">View</a> </li>
@@ -101,31 +108,31 @@
         </div>
     </div>
 
-    <div data-role="content">
-        <div id="control-canvas">
-            <div id="proto-object" class="proto object">
-                <label for="object">object</label>
-                <input type="radio" name="object-choice" id="object" value="object"/>
+    <div data-role="content" id="control-canvas">
+        <div id="proto-object" class="proto object">
+            <label for="object">object</label>
+            <input type="radio" name="object-choice" id="object" value="object"/>
 
-                <select name="event-choice">
-                    <option value="load">load</option>
-                    <option value="click">click</option>
-                    <option value="focus">focus</option>
-                </select>
+            <select name="event-choice">
+                <option value="load">load</option>
+                <option value="click">click</option>
+                <option value="focus">focus</option>
+            </select>
 
-                <div id="proto-block" data-role="button">Block</div>
-            </div>
+            <div id="proto-block" data-role="button" class="proto block">Block</div>
+        </div>
 
-            <div id="window-block" class="object">
-                <label for="window">window</label>
-                <input type="radio" name="object-choice" id="window" value="window" checked="checked" />
+        <div id="window-object" class="object">
+            <label for="window">window</label>
+            <input type="radio" name="object-choice" id="window" value="window" checked="checked" />
 
-                <select name="event-choice">
-                    <option value="load">load</option>
-                    <option value="click">click</option>
-                    <option value="focus">focus</option>
-                </select>
-            </div>
+            <select name="event-choice">
+                <option value="load">load</option>
+                <option value="click">click</option>
+                <option value="focus">focus</option>
+            </select>
+
+            <div id="proto-block" data-role="button" class="proto block">Block</div>
         </div>
     </div>
 
@@ -142,32 +149,39 @@
     </div>
 
     <div data-role="content">
-        <!--
-        <div class="ui-body ui-body-b">
-		<fieldset class="ui-grid-a">
-				<div class="ui-block-a">
-                    <select class="ui-block-a" onclick="updateObjects()" name="object-select" id="object-select">
-                    	<option value="window">window</option>
-                    </select>
-                </div>
+        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
+        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
+        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
+        <a href="#editor" data-role="button">Custom</a>
 
-				<div class="ui-block-b">
-                    <select class="ui-block-b" onclick="updateEvents()" name="event-select" id="event-select">
-                    	<option value="load">load</option>
-                    </select>
-                </div>
-	    </fieldset>
-		</div>-->
-
-        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
-        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
-        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
-        <div onclick="addBlock('alert')" data-role="button" data-rel="back">Alert</div>
-
-        <a href="#view" data-role="button" data-rel="back" data-theme="e">Cancel</a>
+        <a href="#control" data-role="button" data-rel="back" data-theme="e">Cancel</a>
     </div>
 </div>
 
+<div data-role="page" id="editor">
+    <div data-role="header">
+        <h1>Block editor</h1>
+
+        <div onclick="addBlock(false)" data-rel="back" data-role="button" data-icon="check" class="ui-btn-right">Save</div>
+    </div>
+
+    <div data-role="content">
+        <textarea>
+        </textarea>
+    </div>
+</div>
+
+
+
+<div data-role="page" id="run">
+    <div data-role="header">
+        <h1>Running ...</h1>
+    </div>
+
+    <div data-role="content">
+
+    </div>
+</div>
 
 </body>
 </html>
