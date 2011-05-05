@@ -61,8 +61,8 @@ window.addWidget = (type) ->
   canvas = $('#control-canvas')
   canvas.append """
         <div id="#{label}-object" class="object">
-            <label for="object">#{label}</label>
-            <input type="radio" name="object-choice" id="object" value="object"/>
+            <label for="object-choice">#{label}</label>
+            <input type="radio" name="object-choice" value="object"/>
 
             <select name="event-choice">
                 <option value="load">load</option>
